@@ -1,0 +1,69 @@
+weights: ../runs/train/exp/weights/best.pt
+cfg: ''
+data: ../dataset/data_Linux.yaml
+hyp:
+  lr0: 0.0087
+  lrf: 0.01236
+  momentum: 0.98
+  weight_decay: 0.00049
+  warmup_epochs: 4.0047
+  warmup_momentum: 0.71428
+  warmup_bias_lr: 0.10209
+  box: 0.03328
+  cls: 0.56975
+  cls_pw: 1.4206
+  obj: 0.85607
+  obj_pw: 0.84047
+  iou_t: 0.2
+  anchor_t: 3.1175
+  fl_gamma: 0.0
+  hsv_h: 0.01316
+  hsv_s: 0.68962
+  hsv_v: 0.59337
+  degrees: 0.0
+  translate: 0.11811
+  scale: 0.35226
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  mosaic: 0.91958
+  mixup: 0.0
+  copy_paste: 0.0
+  anchors: 3.5689
+epochs: 1000
+batch_size: -1
+imgsz: 1280
+rect: false
+resume: false
+nosave: false
+noval: false
+noautoanchor: false
+noplots: false
+evolve: null
+bucket: ''
+cache: ram
+image_weights: true
+device: ''
+multi_scale: true
+single_cls: false
+optimizer: SGD
+sync_bn: false
+workers: 8
+project: ../runs/train
+name: exp
+exist_ok: false
+quad: false
+cos_lr: false
+label_smoothing: 0.01
+patience: 10
+freeze:
+- 0
+save_period: -1
+seed: 941
+local_rank: -1
+entity: null
+upload_dataset: false
+bbox_interval: -1
+artifact_alias: latest
+save_dir: ../runs/train/exp2
