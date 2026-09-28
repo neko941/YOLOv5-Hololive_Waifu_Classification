@@ -1,0 +1,41 @@
+\label{Chapter Methodology} 
+\section{Methodology}
+    In this project, the YOLOv5 algorithm will be used to search for instances of specified objects in a given image.
+    The general workflow is shown in the following figure.\\
+    \input{diagrams/CircularDiagram-Workflow.tex}       
+% ================================================================================================= 
+        \subsection{Data Gathering}
+            Image Variety, such as various lighting, perspectives, styles, and other factors was especially concentrated on to get the best forecast. 
+            Hence, data are gathered across multiple sources from different artists.
+            \input{chapters/WebScraping.tex}
+            \input{chapters/VideoToFrames.tex}
+% ================================================================================================= 
+        \subsection{Data Preparation}
+            During the collection of images to use for the dataset, certain classes had much more samples to choose from compared to others, which led to an imbalanced problem.
+            Predictive modeling is challenged by imbalanced classifications since the majority of machine learning methods for classification were built on the premise that there should be an equal number of samples in each class. This is because most algorithms are intended to be as accurate and error-free as possible.
+            However, if the data set is imbalanced, the model may still forecast the majority class with a high degree of accuracy but not the minority class, which is often the goal of the model in the first place.
+            \input{chapters/SplitDataset.tex}
+            \input{chapters/DataAugmentation.tex}          
+            \input{chapters/BackgroundImages.tex}
+% ================================================================================================= 
+        \subsection{Evolving Hyperparameter}
+        Hyperparameter is the type of parameter whose values govern the entire deep learning model's learning process. 
+        Furthermore, it determines the values of model parameters that a learning algorithm ends up learning, despite not being a part of the deep learning model.
+
+        Hyperparameter evolution is a method of hyperparameter optimization that employs a Genetic Algorithm (GA) for optimization.
+        In machine learning, hyperparameters control numerous elements of training, and finding optimal values for them may be complex. 
+        Traditional approaches, such as grid searches, can soon become intractable owing to the large dimensionality of the search space, unknown relationships across dimensions, and the costly aspect of evaluating fitness at each point, making GA a viable choice for hyperparameter searches\cite{EvolvingHyperparameter}.
+% ================================================================================================= 
+        \subsection{Traning and Inference}
+            Through training, data is fed into the model to produce a better-trained model. The new weight is then used to infer unlabeled images. That made the labeling procedure faster and less tedious.
+%           ================================================================================================= 
+        \subsection{Manually Check Label}
+            After all of the images have been processed, the 
+            identity of each face within each image will be manually checked and adjusted using \textbf{labelImg}\cite{labelimg} to set a better standard for the 
+            face detection model. These images along with the bounding box and identity 
+            data will then be used for our face identification model. The restrictions for the bounding box span from the top of the head to the chin and ear-to-ear; if they have certain unique accessories, those are also included.
+% ================================================================================================= 
+        \subsection{Label Format}
+            YOLOv5 Pytorch has a highly unique label format. (\autoref{fig:yolov5format}). 
+            Therefore, this format must be converted to another standard format, like Pattern Analysis Statistical Modeling and Computational Learning Visual Object Classes (Pascal VOC)\cite{pascalvoc} or Common Objects in Context (COCO)\cite{coco} (\autoref{fig:otherformats}), when interacting with other processes, like rotation in augmentation.
+            For this reason, a different sub-program called \textbf{Bounding Box Converter}\cite{boundingboxconverter} was developed using the formulas shown in \autoref{fig:conversionformula}. Here is the snippet of how it was implemented: \autoref{fig:thefillerarc}.

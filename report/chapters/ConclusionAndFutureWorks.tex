@@ -1,0 +1,18 @@
+\label{Chapter Conclusion And Future Works}
+    \begin{multicols}{2}
+        \section{Conclusion And Future Works}
+            Future work will be further improved upon by scraping and feeding data from each talent's alternative outfits to our model since each talent has various kinds of outfits and decorations. 
+            \autoref{fig:modelvariation} is an example of completely different official outfits for Uruha Rushia.
+            \input{figures/ModelVariation.tex}
+            Also, there are many niche cases, such as different angles, real cosplay, characters' outfits swapping, or numerous art styles (\autoref{fig:niche}), that are not in our dataset at the moment.
+            
+            Furthermore, we hope to develop a tool that will be capable of classifying all virtual YouTubers. Aside from Hololive, there are numerous other agencies (Nijisanji, VShojo, VirtuaReal, etc.) as well as independent VTubers.
+        
+            Under-sampling is the data splitting method used. However, this approach will not utilize all the available images in the collected dataset. 
+            A customized over-sampling algorithm will therefore be included in the upcoming version to resolve this concern. 
+            The brief idea is to generate more images using various augmentation techniques to balance the number of labels in each class.
+
+            Last but not least, other helpful augmentation methods (such blur, color channels witching, and etc) will be introduced in the future for further generalization of dataset.
+            \input{figures/Niche.tex}
+    \end{multicols}
+% \clearpage

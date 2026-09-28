@@ -1,0 +1,21 @@
+\subsubsection{Split Dataset}
+    A customized under-sampling technique was used to avoid this situation. 
+    The standard under-sampling technique does not meet the requirement simply due to the fact that many of the images used for the dataset have multiple labels.
+    In other words, elimination of an image will lead to the perishment of many other labels.
+    \paragraph{Calculating Quantity}
+        Firstly, start with finding the lowest number of labels out of all the classes to set a standard upon which to divide a ratio between training, validating, and testing. The sum of the ratio of each dataset must be equal to 1:\\
+        \begin{center}
+            \(p(train) + p(val) + p(test) = 1\) 
+        \end{center} 
+        From that, calculate the number of labels per class needed in each subset by:
+        \begin{center}
+            \(n(train) = p(train) * standard\) \\
+            \(n(val) = p(val) * standard\) \\
+            \(n(test) = p(test) * standard\) 
+        \end{center} 
+    \paragraph{Customized Under-sampling Algorithm}
+        The choose approach was employed as opposed to deleting. 
+        The algorithm will first loop over all of the classes that are available. 
+        After that, sort the dataset by how many labels there are in total for that class for each image. 
+        The image will be chosen by an algorithm from left to right. 
+        The image will be added to the new dataset if the total number of labels from each class does not exceed the predetermined number in the previous section (\autoref{fig:CustomizedUnderSampling}).

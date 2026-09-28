@@ -1,0 +1,112 @@
+\documentclass[10pt]{article}
+% ================================================================================
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{tabto}
+\usepackage{float}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{inputenc}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{subcaption}
+\usepackage{stackengine}
+\usepackage{smartdiagram}
+\usepackage{pythonhighlight}
+\usepackage{stfloats}
+\usepackage{CJKutf8}
+% Bar chart drawing library 
+\usepackage{pgfplots} 
+% ================================================================================
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=red,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\setlength{\topmargin}{-.5in} \setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{0in} \setlength{\textwidth}{6.8in}
+% ================================================================================
+\newcounter{mycounter} 
+\newcommand\showmycounter{\stepcounter{mycounter}\themycounter}
+\newcommand\showlips{\stepcounter{mycounter}\lipsum[\value{mycounter}]}
+% ================================================================================
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+% ================================================================================
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+% ================================================================================
+\graphicspath{{images/}}
+% \usepackage[includefoot]{geometry}
+% \usepackage{blindtext}
+% \usepackage{lastpage}
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \fancyhf{} % clear existing header/footer entries
+% % Place Page X of Y on the right-hand
+% % side of the footer
+% \fancyfoot[R]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+% ================================================================================
+\pagenumbering{arabic}
+% \usepackage{lastpage}
+
+% \usepackage{fancyhdr}
+
+% \fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+
+\pagestyle{fancy}
+
+\title{Title}
+% \author{Group Hololive' Face Detection}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\lhead{\bfseries Vietnamese-German University}
+\rhead{\bfseries  Compulsory Elective Subject}
+\begin{document}
+    \input{chapters/Title.tex}
+        \input{chapters/Abstract.tex}
+        \input{chapters/Introduction.tex}
+        \input{chapters/Methodology.tex}
+        \input{chapters/Experiment.tex}   
+        \input{chapters/ConclusionAndFutureWorks.tex}
+        \input{chapters/Contribution.tex}
+        \bibliographystyle{IEEEtran} % We choose the "plain" reference style
+        \bibliography{refs} % Entries are in the refs.bib file
+        \input{chapters/Appendix.tex}
+        % \clearpage
+    % \end{multicols}
+\end{document}

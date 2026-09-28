@@ -1,0 +1,19 @@
+\label{Chapter Experiment} 
+\section{Experiment}
+    \subsection{Final Dataset}
+        In the final cycle, 10938 images were used for training and 2683 images for validating (\autoref{table:DatasetInformation}). 2464 images (with 80\% for training, 20\% for validating, and 0\% for testing) from all the sources listed above were used to generate 9856 augmented images. The original dataset has inconsistent number of labels for each class (\autoref{chart:Originaldatasetlabeldistribution}) but the splitting algorithm has done a great job to balance out the number labels per class for training set (\autoref{chart:Trainingsetlabeldistribution}) and validating set (\autoref{chart:Validatingsetlabeldistribution}). Additionally, there are 1301 background images (equivalent to 10\% of the dataset) chosen for each sub-set.
+
+        For the number of instances of each class, there were 41 for training and around 9 for validating from the original dataset (\autoref{table:LabelDistribution} and \autoref{table:LabelDistribution1}). 
+        After that, all of that expanded into 164 more labels per class for training and 36 for validating.
+    \subsection{Final Hyperparameter Evolving}
+        The configuration described in \autoref{table:Configuration} was used for the final evolution.
+        The program took 10 days to finish running and return the results in \autoref{table:Hyperparameters}.
+    \subsection{Final Training}
+        For the last training session, the configuration listed in \autoref{table:Configuration} was employed. The YOLOv5x6 architecture and the customized version of hyperparameter are chosen with a preference for high accuracy.The results are shown in \autoref{fig:result1}, \autoref{fig:result2}, and \autoref{fig:result3}.
+    \subsection{Deploy}
+        For the sake of demonstration, \textbf{YOLOv5 Hololive Waifu Detection}\cite{Application} application was made. \textbf{Streamlit} is used for a basic GUI, and the application is hosted on the \textbf{Hugging Face Spaces} (\autoref{fig:WebApp}).
+        Hugging Face Spaces offer a straightforward website to host machine learning demonstration applications directly. 
+        Streamlit and Gradio are two fantastic Python SDKs that are supported by the platform. 
+        Users may also construct static Spaces with JavaScript and HTML for more personalized demonstrations\cite{huggingfacespaces}.
+    \end{multicols}
+    \clearpage

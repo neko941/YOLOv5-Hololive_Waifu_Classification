@@ -1,0 +1,185 @@
+\begin{table}
+    \caption{\label{Configuration}Configuration} 
+    \begin{center}
+        \begin{tabular}{ | m{8em} | m{5em} | m{5em} | 
+ m{5em}| m{15em} | } 
+            \hline
+                \centering\textbf{Argument} & 
+                \centering\textbf{Default} & 
+                \centering\textbf{Evolve} & 
+                \centering\textbf{Train} & 
+                \centering\textbf{Description}
+                \tabularnewline
+            \hline
+                \texttt{epochs} &
+                \centering 100 & 
+                \centering 10 & 
+                \centering 1000 & 
+                \texttt{Total training epochs}
+                \tabularnewline
+            \hline
+                \texttt{batch\_size} &
+                \centering 16 & 
+                \centering -1 & 
+                \centering -1 & 
+                \texttt{Total batch size for all GPUs, -1 for autobatch}
+                \tabularnewline
+            \hline
+                \texttt{imgsz} &
+                \centering 640 & 
+                \centering 1280 & 
+                \centering 1280 & 
+                \texttt{Image size}
+                \tabularnewline
+            \hline
+                \texttt{rect} &
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \texttt{Forces rectangular image training}
+                \tabularnewline
+            \hline
+                \texttt{nosave} &
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \texttt{Only save final checkpoint}
+                \tabularnewline
+            \hline
+                \texttt{noval} &
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \texttt{Only validate final epoch}
+                \tabularnewline
+            \hline
+                \texttt{noautoanchor} &
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \texttt{Disable AutoAnchor}
+                \tabularnewline
+            \hline
+                \texttt{noplots} &
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \texttt{Save no plot files}
+                \tabularnewline
+            \hline
+                \texttt{evolve} &
+                \centering\texttt{null} & 
+                \centering\texttt{300} & 
+                \centering\texttt{null} & 
+                \texttt{Evolve hyperparameters for x generations}
+                \tabularnewline
+            \hline
+                \texttt{bucket} &
+                \centering\texttt{''} & 
+                \centering\texttt{''} & 
+                \centering\texttt{''} & 
+                \texttt{Gsutil bucket}
+                \tabularnewline
+            \hline
+                \texttt{cache} &
+                \centering\texttt{null} & 
+                \centering\texttt{'ram'} & 
+                \centering\texttt{'ram'} & 
+                \texttt{image --cache ram/disk}
+                \tabularnewline
+            \hline
+                \texttt{image-weights} &
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \centering\texttt{true} & 
+                \texttt{Use weighted image selection for training}
+                \tabularnewline
+            \hline
+                \texttt{device} &
+                \centering\texttt{''} & 
+                \centering\texttt{''} & 
+                \centering\texttt{''} & 
+                \texttt{Cuda device, i.e. 0 or 0,1,2,3 or cpu}
+                \tabularnewline
+            \hline
+                \texttt{multi-scale} &
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \centering\texttt{true} & 
+                \texttt{Vary img-size +/- 50\%\%}
+                \tabularnewline
+            \hline
+                \texttt{single-cls} &
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \texttt{Train multi-class data as single-class}
+                \tabularnewline
+            \hline
+                \texttt{optimizer} &
+                \centering\texttt{'SGD'} & 
+                \centering\texttt{'AdamW'} & 
+                \centering\texttt{'SGD'} & 
+                \texttt{Optimizer in ['SGD', 'Adam', 'AdamW']}
+                \tabularnewline
+            \hline
+                \texttt{exist-ok} &
+                \centering\texttt{false} & 
+                \centering\texttt{true} & 
+                \centering\texttt{true} & 
+                \texttt{Existing project/name ok, do not increment}
+                \tabularnewline
+            \hline
+                \texttt{quad} &
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \texttt{Quad dataloader}
+                \tabularnewline
+            \hline
+                \texttt{cos-lr} &
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \centering\texttt{false} & 
+                \texttt{Cosine LR scheduler}
+                \tabularnewline
+            \hline
+                \texttt{label-smoothing} &
+                \centering\texttt{0.0} & 
+                \centering\texttt{0.01} & 
+                \centering\texttt{0.01} & 
+                \texttt{Label smoothing epsilon}
+                \tabularnewline
+            \hline
+                \texttt{patience} &
+                \centering\texttt{100} & 
+                \centering\texttt{100} & 
+                \centering\texttt{10} & 
+                \texttt{Label smoothing epsilon}
+                \tabularnewline
+            \hline
+                \texttt{freeze} &
+                \centering\texttt{[0]} & 
+                \centering\texttt{[0]} & 
+                \centering\texttt{[0]} & 
+                \texttt{Freeze layers: backbone=10, first3=0 1 2}
+                \tabularnewline
+            \hline
+                \texttt{save-period} &
+                \centering\texttt{-1} & 
+                \centering\texttt{-1} & 
+                \centering\texttt{-1} & 
+                \texttt{Save checkpoint every x epochs (disabled if < 1)}
+                \tabularnewline
+            \hline
+                \texttt{seed} &
+                \centering\texttt{0} & 
+                \centering\texttt{0} & 
+                \centering\texttt{941} & 
+                \texttt{Global training seed}
+                \tabularnewline
+            \hline
+        \end{tabular}  
+    \end{center}
+    \label{table:Configuration}
+\end{table}

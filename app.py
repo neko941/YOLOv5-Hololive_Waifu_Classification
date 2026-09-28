@@ -36,7 +36,13 @@ def check_file(file, suffix=''):
             ).st_size > 0, f'File download failed: {url}'  # check
         return file
 
-
+def read_pretrain(name):
+    # models live in pretrained/hololive_2/<date>/<name>; the HF Space keeps them next to app.py
+    local = os.path.join('pretrained', 'hololive_2', name[:10], name)
+    return torch.hub.load('ultralytics/yolov5', 'custom', path=local if os.path.exists(local) else name)
+    
+# default_pretrained = '2022.11.04-YOLOv5x6_1280-Hololive_Waifu_Classification.pt'
+    
 st.title("Hololive Waifu Classification")
 
 image = st.text_input('Image URL', '')
@@ -44,8 +50,14 @@ st.info(
     'Images for quick tesing:\n \n \n'
     ' - https://i.imgur.com/tFZwWYw.jpg'
     '\n \n \n'
-    ' - https://static.wikia.nocookie.net/omniversal-battlefield/images/b/bd/Council.jpg')
-pretrained = st.selectbox('Select pre-trained', ('2022.11.01-YOLOv5x6_1280-Hololive_Waifu_Classification.pt', 'last.pt'))
+    ' - https://static.wikia.nocookie.net/omniversal-battlefield/images/b/bd/Council.jpg'
+    '\n \n \n'
+    ' - https://rare-gallery.com/uploads/posts/951368-anime-anime-girls-digital-art-artwork-2D-portrait.jpg'
+    '\n \n \n'
+    ' - https://megapx-assets.dcard.tw/images/65993ab1-fe08-43be-87cd-2ecd201cacbd/1280.jpeg'
+    '\n \n \n'
+    ' - https://img.esportsku.com/wp-content/uploads//2021/07/hololive-en.png')
+pretrained = st.selectbox('Select pre-trained', ('2022.11.04-YOLOv5x6_1280-Hololive_Waifu_Classification.pt', '2022.11.01-YOLOv5x6_1280-Hololive_Waifu_Classification.pt'))
 imgsz = st.number_input(label='Image Size', min_value=None, max_value=None, value=1280, step=1)
 conf = st.slider(label='Confidence threshold', min_value=0.0, max_value=1.0, value=0.25, step=0.01)
 iou = st.slider(label='IoU threshold', min_value=0.0, max_value=1.0, value=0.45, step=0.01)
@@ -53,13 +65,19 @@ multi_label = st.selectbox('Multiple labels per box', (False, True))
 agnostic = st.selectbox('Class-agnostic', (False, True))
 amp = st.selectbox('Automatic Mixed Precision inference', (False, True))
 max_det  = st.number_input(label='Maximum number of detections per image', min_value=None, max_value=None, value=1000, step=1)
-
-if st.button('Excute'):
+clicked = st.button('Excute')
+# with st.spinner('Loading the model...'):
+#     model = read_pretrain(default_pretrained)
+    
+if clicked:
     with st.spinner('Loading the image...'):
         image_path = check_file(image)
         input_image = Image.open(image_path)
+    # if default_pretrained != pretrained:
     with st.spinner('Loading the model...'):
-        model = torch.hub.load('ultralytics/yolov5', 'custom', path=os.path.join('pretrained', pretrained))
+            # model = torch.hub.load('ultralytics/yolov5', 'custom', path=os.path.join('pretrained', pretrained))
+            # model = torch.hub.load('ultralytics/yolov5', 'custom', path=pretrained)
+        model = read_pretrain(pretrained)
     with st.spinner('Updating configuration...'):
         model.conf = float(conf)
         model.max_det = int(max_det)

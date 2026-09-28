@@ -1,0 +1,250 @@
+\label{Table Hyperparameters}
+\begin{table}
+    \caption{Hyperparameters}
+    \centering
+    \begin{tabular}{ | m{7.5em} | m{4em} | m{4em} | 
+ m{4em}| m{4em} | m{16em} |} 
+        \hline
+            \centering\textbf{Variable} & 
+            \centering\textbf{High} & 
+            \centering\textbf{Medium} & 
+            \centering\textbf{Low} & 
+            \centering\textbf{Evolved} &
+            \centering\textbf{Description}
+            \tabularnewline
+        \hline
+            \texttt{lr0} & 
+            \centering\texttt{0.01} & 
+            \centering\texttt{0.01} & 
+            \centering\texttt{0.01} & 
+            \centering\texttt{0.0087} &
+            \texttt{Initial learning rate}
+            \tabularnewline
+        \hline
+            \texttt{lrf} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.01} & 
+            \centering\texttt{0.01236} &
+            \texttt{Final OneCycleLR learning rate}
+            \tabularnewline
+        \hline
+            \texttt{momentum} & 
+            \centering\texttt{0.937} & 
+            \centering\texttt{0.937} & 
+            \centering\texttt{0.937} & 
+            \centering\texttt{0.98} &
+            \texttt{SGD momentum/Adam beta1}
+            \tabularnewline
+        \hline
+            \texttt{weight\_decay} & 
+            \centering\texttt{0.0005} & 
+            \centering\texttt{0.0005} & 
+            \centering\texttt{0.0005} & 
+            \centering\texttt{0.00049} &
+            \texttt{Optimizer weight decay}
+            \tabularnewline
+        \hline
+            \texttt{warmup\_epochs} & 
+            \centering\texttt{3.0} & 
+            \centering\texttt{3.0} & 
+            \centering\texttt{3.0} & 
+            \centering\texttt{4.0047} &
+            \texttt{Warmup epochs}
+            \tabularnewline
+        \hline
+            \texttt{warmup\_momentum} & 
+            \centering\texttt{0.8} & 
+            \centering\texttt{0.8} & 
+            \centering\texttt{0.8} & 
+            \centering\texttt{0.71428} &
+            \texttt{Warmup initial momentum}
+            \tabularnewline
+        \hline
+            \texttt{warmup\_bias\_lr} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.10209} &
+            \texttt{Warmup initial bias learning rate}
+            \tabularnewline
+        \hline
+            \texttt{box} & 
+            \centering\texttt{0.05} & 
+            \centering\texttt{0.05} & 
+            \centering\texttt{0.05} & 
+            \centering\texttt{0.03328} &
+            \texttt{Box loss gain}
+            \tabularnewline
+        \hline
+            \texttt{cls} & 
+            \centering\texttt{0.3} & 
+            \centering\texttt{0.3} & 
+            \centering\texttt{0.5} & 
+            \centering\texttt{0.56975} &
+            \texttt{Class loss gain}
+            \tabularnewline
+        \hline
+            \texttt{cls\_pw} & 
+            \centering\texttt{1.0} & 
+            \centering\texttt{1.0} & 
+            \centering\texttt{1.0} & 
+            \centering\texttt{1.4206} &
+            \texttt{Class BCELoss positive weight}
+            \tabularnewline
+        \hline
+            \texttt{obj} & 
+            \centering\texttt{0.7} & 
+            \centering\texttt{0.7} & 
+            \centering\texttt{1.0} & 
+            \centering\texttt{0.85607} &
+            \texttt{Object loss gain, scale with pixels}
+            \tabularnewline
+        \hline
+            \texttt{obj\_pw} & 
+            \centering\texttt{1.0} & 
+            \centering\texttt{1.0} & 
+            \centering\texttt{1.0} & 
+            \centering\texttt{0.84047} &
+            \texttt{Object BCELoss positive weight}
+            \tabularnewline
+        \hline
+            \texttt{iou\_t} & 
+            \centering\texttt{0.2} & 
+            \centering\texttt{0.2} & 
+            \centering\texttt{0.2} & 
+            \centering\texttt{0.2} &
+            \texttt{IoU training threshold}
+            \tabularnewline
+        \hline
+            \texttt{anchor\_t} & 
+            \centering\texttt{4.0} & 
+            \centering\texttt{4.0} & 
+            \centering\texttt{4.0} & 
+            \centering\texttt{3.1175} &
+            \texttt{Anchor with multiple threshold}
+            \tabularnewline
+        \hline
+            \texttt{anchors} & 
+            \centering\texttt{3.0} & 
+            \centering\texttt{3.0} & 
+            \centering\texttt{3.0} & 
+            \centering\texttt{3.5689} &
+            \texttt{Anchors per output layer (0 to ignore)}
+            \tabularnewline
+        \hline
+            \texttt{fl\_gamma} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} &
+            \texttt{Focal loss gamma}
+            \tabularnewline
+        \hline
+            \texttt{hsv\_h} & 
+            \centering\texttt{0.015} & 
+            \centering\texttt{0.015} & 
+            \centering\texttt{0.015} & 
+            \centering\texttt{0.01316} &
+            \texttt{Image HSV-Hue augmentation}
+            \tabularnewline
+        \hline
+            \texttt{hsv\_s} & 
+            \centering\texttt{0.7} & 
+            \centering\texttt{0.7} & 
+            \centering\texttt{0.7} & 
+            \centering\texttt{0.68962} &
+            \texttt{Image HSV-Saturation augmentation}
+            \tabularnewline
+        \hline
+            \texttt{hsv\_v} & 
+            \centering\texttt{0.4} & 
+            \centering\texttt{0.4} & 
+            \centering\texttt{0.4} & 
+            \centering\texttt{0.59337} &
+            \texttt{Image HSV-Value augmentation}
+            \tabularnewline
+        \hline
+            \texttt{degrees} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} &
+            \texttt{Image rotation}
+            \tabularnewline
+        \hline
+            \texttt{translate} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.11811} &
+            \texttt{Image translation}
+            \tabularnewline
+        \hline
+            \texttt{scale} & 
+            \centering\texttt{0.9} & 
+            \centering\texttt{0.9} & 
+            \centering\texttt{0.5} & 
+            \centering\texttt{0.35226} &
+            \texttt{Image scale}
+            \tabularnewline
+        \hline
+            \texttt{shear} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} &
+            \texttt{Image shear}
+            \tabularnewline
+        \hline
+            \texttt{perspective} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} &
+            \texttt{Image perspective, range [0, 0.001]}
+            \tabularnewline
+        \hline
+            \texttt{flipud} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} &
+            \texttt{Probability image flip up-down}
+            \tabularnewline
+        \hline
+            \texttt{fliplr} & 
+            \centering\texttt{0.5} & 
+            \centering\texttt{0.5} & 
+            \centering\texttt{0.5} & 
+            \centering\texttt{0.5} &
+            \texttt{Probability image flip left-right}
+            \tabularnewline
+        \hline
+            \texttt{mosaic} & 
+            \centering\texttt{1.0} & 
+            \centering\texttt{1.0} & 
+            \centering\texttt{1.0} & 
+            \centering\texttt{0.91958} &
+            \texttt{Probability image mosaic}
+            \tabularnewline
+        \hline
+            \texttt{mixup} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} &
+            \texttt{Probability image mixup}
+            \tabularnewline
+        \hline
+            \texttt{copy\_paste} & 
+            \centering\texttt{0.1} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} & 
+            \centering\texttt{0.0} &
+            \texttt{Probability segment copy-paste}
+            \tabularnewline
+        \hline
+    \end{tabular}
+    \label{table:Hyperparameters}
+\end{table}
